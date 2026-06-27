@@ -1,85 +1,385 @@
-/* Its about Tic Tac Toe. (Ninth program) (Project)
-
-# It is used for Ninth Program.*/
-
+/* Tic Tac Toe - Fully Responsive CSS */
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
-    font-size: 1.5cm;
-    color: rgba(255, 255, 44, 0.958);
-}
 body {
-    background-color: #ed2596; 
+    background-color: #ed2596;
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
 }
 
+/* Main container */
+main {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Title */
+h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    color: rgba(255, 255, 44, 0.958);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    word-wrap: break-word;
+}
+
+/* Container for game board */
 .container {
-    height: 70vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px 0;
 }
 
+/* Game board */
 .game {
-    height: 60vmin;
-    width: 60vmin;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(6px, 2vw, 15px);
+    width: min(80vw, 400px);
+    height: min(80vw, 400px);
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+}
+
+/* Individual boxes */
+.box {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: clamp(8px, 2vw, 16px);
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-weight: bold;
+    color: #b0413e;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1.5vmin;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.box {
-    height: 18vmin;
-    width: 18vmin;
-    border-radius: 1rem;
-    border: none;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-    font-size: 8vmin;
-    color: #b0413e;
-    background-color: #fff;
+/* Hover effect (desktop only) */
+.box:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-#reset-btn {
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: #fff;
-    border-radius: 1rem;
-    border: none;
+/* Active/Click effect */
+.box:active:not(:disabled) {
+    transform: scale(0.95);
 }
 
-#new-btn {
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: #fff;
-    border-radius: 1rem;
-    border: none;
+/* Disabled boxes */
+.box:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
 }
 
-#msg {  /*Selector: #msg targets an element with the ID msg.*/
+/* Message container */
+.msg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(1rem, 4vw, 3rem);
+    padding: clamp(20px, 5vw, 50px);
+    min-height: 50vh;
+    width: 100%;
+}
+
+/* Winner message */
+#msg {
     color: #ffffc7;
-    font-size: 13vmin;
+    font-size: clamp(2rem, 8vw, 4rem);
     font-style: oblique;
     font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+    padding: 10px;
 }
 
-.msg-container {     /*Selector: .msg_container targets any elements 
-                       with the class msg_container.*/
-    height: 80vmin;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 8rem;
+/* Buttons */
+#reset-btn,
+#new-btn {
+    padding: clamp(10px, 2vw, 20px) clamp(20px, 4vw, 40px);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: bold;
+    background-color: #191913;
+    color: #ffffff;
+    border-radius: clamp(8px, 1.5vw, 16px);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+    min-width: 120px;
+    letter-spacing: 0.5px;
 }
 
+/* Button hover (desktop only) */
+#reset-btn:hover,
+#new-btn:hover {
+    transform: scale(1.05);
+    background-color: #2d2d22;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Button active (click) */
+#reset-btn:active,
+#new-btn:active {
+    transform: scale(0.95);
+}
+
+/* Hide class */
 .hide {
-    display: none;
+    display: none !important;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Small phones (iPhone SE, Android small) */
+@media screen and (max-width: 380px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .game {
+        width: min(85vw, 300px);
+        height: min(85vw, 300px);
+        gap: 5px;
+    }
+    
+    .box {
+        font-size: 2rem;
+        border-radius: 6px;
+    }
+    
+    #reset-btn,
+    #new-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        min-width: 100px;
+    }
+    
+    #msg {
+        font-size: 1.8rem;
+    }
+}
+
+/* Standard phones (iPhone 6/7/8, Android) */
+@media screen and (min-width: 381px) and (max-width: 480px) {
+    .game {
+        width: min(80vw, 350px);
+        height: min(80vw, 350px);
+        gap: 8px;
+    }
+    
+    .box {
+        font-size: 2.8rem;
+        border-radius: 10px;
+    }
+    
+    #reset-btn,
+    #new-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        min-width: 110px;
+    }
+}
+
+/* Large phones (iPhone Plus/Max, Android large) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .game {
+        width: min(75vw, 400px);
+        height: min(75vw, 400px);
+        gap: 10px;
+    }
+    
+    .box {
+        font-size: 3.5rem;
+        border-radius: 12px;
+    }
+}
+
+/* Tablets (iPad, Android tablets) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .game {
+        width: min(60vw, 450px);
+        height: min(60vw, 450px);
+        gap: 12px;
+    }
+    
+    .box {
+        font-size: 4rem;
+        border-radius: 14px;
+    }
+    
+    main {
+        max-width: 700px;
+    }
+}
+
+/* Desktop and large screens */
+@media screen and (min-width: 1025px) {
+    .game {
+        width: 450px;
+        height: 450px;
+        gap: 15px;
+    }
+    
+    .box {
+        font-size: 5rem;
+        border-radius: 16px;
+    }
+    
+    main {
+        max-width: 800px;
+    }
+}
+
+/* Landscape mode for phones */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .game {
+        width: min(50vh, 350px);
+        height: min(50vh, 350px);
+        gap: 6px;
+    }
+    
+    .box {
+        font-size: 2.5rem;
+        border-radius: 8px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    
+    .msg-container {
+        min-height: 30vh;
+        gap: 1rem;
+    }
+    
+    #msg {
+        font-size: 1.5rem;
+    }
+    
+    #reset-btn,
+    #new-btn {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+        min-width: 80px;
+    }
+}
+
+/* Large screens (TV, 4K) */
+@media screen and (min-width: 1920px) {
+    .game {
+        width: 600px;
+        height: 600px;
+        gap: 20px;
+    }
+    
+    .box {
+        font-size: 7rem;
+        border-radius: 20px;
+    }
+    
+    h1 {
+        font-size: 4rem;
+    }
+    
+    #reset-btn,
+    #new-btn {
+        padding: 20px 50px;
+        font-size: 1.8rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .box {
+        background-color: #2d2d2d;
+        color: #ff6b6b;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    #reset-btn,
+    #new-btn {
+        background-color: #333333;
+        color: #ffffff;
+    }
+    
+    #reset-btn:hover,
+    #new-btn:hover {
+        background-color: #444444;
+    }
+}
+
+/* High contrast / Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .box,
+    #reset-btn,
+    #new-btn {
+        transition: none !important;
+    }
+    
+    .box:hover:not(:disabled) {
+        transform: none !important;
+    }
+    
+    #reset-btn:hover,
+    #new-btn:hover {
+        transform: none !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .box:hover:not(:disabled) {
+        transform: none !important;
+    }
+    
+    #reset-btn:hover,
+    #new-btn:hover {
+        transform: none !important;
+    }
+    
+    .box {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    .box {
+        border: 2px solid #333;
+        box-shadow: none;
+        color: #333;
+    }
+    
+    #reset-btn,
+    #new-btn {
+        display: none;
+    }
 }
