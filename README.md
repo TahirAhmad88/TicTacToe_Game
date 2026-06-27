@@ -56,14 +56,16 @@ TicTacToe_Game/
 
 # Customization
 Change Colors
-text
 /* In style.css */
+
 body { background-color: #ed2596; } /* Change background */
+
 .box { color: #b0413e; } /* Change X/O color */
+
 h1 { color: rgba(255, 255, 44, 0.958); } /* Change title color */
 
 # Change Board Size
-text
+
 .game {
     height: 60vmin;
     width: 60vmin;
