@@ -90,6 +90,7 @@ cd TicTacToe_Game
 # Author
 Tahir Ahmad
 
-GitHub: @TahirAhmad88
+# GitHub: 
+@TahirAhmad88
 
 Star this repository if you like it!
