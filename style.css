@@ -105,10 +105,8 @@ h1 {
 /* ===== MESSAGE CONTAINER (Overlays the game) ===== */
 .msg-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -120,11 +118,7 @@ h1 {
   z-index: 10;
   width: min(70vw, 450px);
   height: min(70vw, 450px);
-  margin: 0 auto;
   aspect-ratio: 1/1;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 50%;
   transform: translate(-50%, -50%);
 }
 
