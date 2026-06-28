@@ -21,7 +21,8 @@ https://TahirAhmad88.github.io/TicTacToe_Game/
 5. Click New Game or Reset Game to start over
 
 # Screenshots
-<img width="1348" height="461" alt="image" src="https://github.com/user-attachments/assets/22b0f9b5-ea28-48ec-9d11-7b474dc273df" />
+<img width="1053" height="566" alt="image" src="https://github.com/user-attachments/assets/836a954a-0d27-4d24-a36b-aeb01c12e2d9" />
+<img width="971" height="562" alt="image" src="https://github.com/user-attachments/assets/b70d61f1-ca4f-46c6-8739-43552f2e782a" />
 <img width="1348" height="589" alt="image" src="https://github.com/user-attachments/assets/fd419935-9197-4598-aa28-435695e12a3d" />
 <img width="1353" height="586" alt="image" src="https://github.com/user-attachments/assets/3562114c-a53b-4570-bb93-8d3eb8ff3019" />
 
